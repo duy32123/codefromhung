@@ -107,6 +107,8 @@ gulp.task('copy:misc', () =>
         // (other tasks will handle the copying of these files)
         `!${dirs.src}/css/main.css`,
         `!${dirs.src}/index.html`,
+        `!${dirs.src}/node_modules/**`,
+        `!${dirs.src}/dist/**`,
         `!**/.DS_Store`,
       ],
       {

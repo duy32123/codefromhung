@@ -9,6 +9,13 @@ const dirs = pkg['h5bp-configs'].directories;
 
 const expectedFilesInArchiveDir = [`${pkg.name}_v${pkg.version}.zip`];
 
+const sourceImageFiles = globSync('**/*', {
+  cwd: path.join(dirs.src, 'img'),
+  dot: true,
+  mark: true,
+  posix: true,
+}).map((file) => `img/${file}`);
+
 const expectedFilesInDistDir = [
   '.editorconfig',
   '.gitattributes',
@@ -30,7 +37,7 @@ const expectedFilesInDistDir = [
   'icon.svg',
 
   'img/',
-  'img/.gitkeep',
+  ...sourceImageFiles,
 
   'index.html',
 
